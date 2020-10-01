@@ -1,0 +1,53 @@
+img {
+	width: 30px;
+	height: 30px;
+}
+
+/* *{
+	cursor: none;
+} */
+
+#greenBlock {
+	background-color: green;
+}
+
+#orangeBlock {
+	background-color: orange;
+}
+
+#grayBlock {
+	background-color: rgb(220, 220, 220);
+}
+
+#blackPurplishBlock {
+	background-color: rgb(128, 0, 96);
+}
+
+#yellowWall {
+	background-color: yellow;
+}
+
+#redWall {
+	background-color: red;
+}
+
+#blackGreenishWall {
+	background-color: rgb(0, 26, 0);
+}
+
+.block {
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+}
+
+.wall {
+	width: 10px;
+	height: 25px;
+	display: inline-block;
+}
+
+
+html,body {
+	margin: 0
+}

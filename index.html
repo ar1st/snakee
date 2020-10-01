@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8"/>
+	<title>Another snake game</title>
+	<link rel="shortcut icon" type="image/png" href="assets/favicon/favicon2.ico" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel='stylesheet' type='text/css' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+	<link rel="stylesheet" href="assets/css/customStyle.css">
+</head>
+
+<body>
+	<div class="modal" id="startGamePopUp" tabindex="-1" role="dialog" aria-labelledby="startGamePopUp" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Another Snake Game</h5>
+				</div>
+				<div class="modal-body">
+					<h5>Controls</h5>
+					Move around with the arrows or AWSD.
+					Pause/Resume the game with the <b style='font-size:1.5em;'>Escape</b>.
+					<hr>
+					<h5>Eat and Drink</h5>
+					<span id='greenBlock' class='block'></span> is the Food. Eat to get longer.
+					<br>
+					<span id='orangeBlock' class='block'></span> is the Mystery Potion. Drink to boost your score or die horribly.Who
+					knows <b>??</b>
+					<br>
+					<span id='grayBlock' class='block'></span> is the Speed Potion. Drink to get faster(also boosts your score).
+					<br>
+					<span id='blackPurplishBlock' class='block'></span> is the Concrete Potion. Drink to build walls around the map
+					for a limited time.
+					<hr>
+					<h5>Obstacles</h5>
+					<span id='yellowWall' class='wall'></span> is an Electricity Wall. Step away.
+					<br>
+					<span id='redWall' class='wall'></span> is a Stop Wall. You can't pass that.
+					<br>
+					<span id='blackGreenishWall' class='wall'></span> is a Slow Wall. Pass through it and you will be slow AF.
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id='creditsButton' disabled>Credits</button>
+					<button type="button" class="btn btn-primary" id='playButton'>Play</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal" id="endGamePopUp" tabindex="-1" role="dialog" aria-labelledby="endGamePopUp" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Game Over :(</h5>
+				</div>
+				<div class="modal-body" id='scoreDiv'>
+					You lost. Your score was: 42
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id='restartButton'>Restart</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal" id="infoPopUp" tabindex="-1" role="dialog" aria-labelledby="infoPopUp" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<h5>Controls</h5>
+					Move around with the arrows or AWSD.
+					Pause/Resume the game with the <b style='font-size:1.5em;'>Escape</b>.
+					<hr>
+					<h5>Eat and Drink</h5>
+					<span id='greenBlock' class='block'></span> is the Food. Eat to get longer.
+					<br>
+					<span id='orangeBlock' class='block'></span> is the Mystery Potion. Drink to boost your score or die horribly.Who
+					knows <b>??</b>
+					<br>
+					<span id='grayBlock' class='block'></span> is the Speed Potion. Drink to get faster(also boosts your score).
+					<br>
+					<span id='blackPurplishBlock' class='block'></span> is the Concrete Potion. Drink to build walls around the map
+					for a limited time.
+					<hr>
+					<h5>Obstacles</h5>
+					<span id='yellowWall' class='wall'></span> is an Electricity Wall. Step away.
+					<br>
+					<span id='redWall' class='wall'></span> is a Stop Wall. You can't pass that.
+					<br>
+					<span id='blackGreenishWall' class='wall'></span> is a Slow Wall. Pass through it and you will be slow AF.
+					<hr>
+					<img id='volume' alt='Volume Toggle Button'></img>
+					<img id='wall' src="assets/images/wall.png" alt="Wall Toggle Button">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script type="text/javascript" src='assets/javascript/p5.min.js'></script>
+<script type="text/javascript" src='assets/javascript/p5.dom.min.js'></script>
+<script type="text/javascript" src='assets/javascript/p5.sound.min.js'></script>
+<!--Custom libraries -->
+<script type="text/javascript" src='sketch.js'></script>
+<script type="text/javascript" src='snake.js'></script>
+<script type="text/javascript" src='food.js'></script>
+<script type="text/javascript" src='obstacle.js'></script>
+<script type="text/javascript" src='electricalObstacle.js'></script>
+<script type="text/javascript" src='stopObstacle.js'></script>
+<script type="text/javascript" src='slowObstacle.js'></script>
+<script type="text/javascript" src='potion.js'></script>
+<script type="text/javascript" src='speedPotion.js'></script>
+<script type="text/javascript" src='mysteryPotion.js'></script>
+<script type="text/javascript" src='concretePotion.js'></script>
+
+</html>
